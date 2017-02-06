@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/artventory.iml" filepath="$PROJECT_DIR$/.idea/artventory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registration/registration.iml" filepath="$PROJECT_DIR$/registration/registration.iml" />
     </modules>
   </component>
 </project>
