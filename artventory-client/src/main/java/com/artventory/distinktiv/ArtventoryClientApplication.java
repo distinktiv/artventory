@@ -13,4 +13,5 @@ public class ArtventoryClientApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArtventoryClientApplication.class, args);
 	}
+
 }
