@@ -10,11 +10,10 @@ import java.util.Collection;
 /**
  * Created by distinktiv on 2017-02-09.
  */
-@FeignClient("users-service")
+@FeignClient(value = "users-service", fallback = UserClientFallback.class)
 public interface UserClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/users")
     Collection<User> getAllUsers();
-
 
 }
