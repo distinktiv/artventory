@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/admin.main">
+  <head>
+    <title>Mariloudart - Ajout de tableaux</title>
+    <link href="/assets/plugins/dropzone/css/dropzone.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min.css" type="text/css" rel="stylesheet" >
+  </head>
+  <body>
+    <div layout:fragment="content">
+          <!-- START PAGE CONTENT -->
+          <div class="content ">
+            <!-- START CONTAINER FLUID -->
+            <div class="container-fluid container-fixed-lg bg-white m-t-20">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- START PANEL -->
+                  <div class="panel panel-transparent">
+                    <div class="panel-body">
+
+                      <form id="form-project" class="dropzone" th:object="${painting}" role="form" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <p>Basic Information</p>
+                        <div class="form-group-attached">
+                          <div class="form-group form-group-default required">
+                            <label>Titre</label>
+                            <input type="text" class="form-control" name="title" th:field="*{title}" required>
+                          </div>
+                          <div class="row clearfix">
+                            <div class="col-sm-6">
+                              <div class="form-group form-group-default required">
+                                <label>Catégorie</label>
+                                <input type="text" class="form-control" name="category" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group form-group-default">
+                                <label>Médium</label>
+                                <input type="text" class="form-control" name="medium">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="m-t-10">Advanced Information</p>
+                        <div class="form-group-attached">
+                          <div class="form-group form-group-default">
+                            <label>Technique <i class="fa fa-info text-complete m-l-5"></i>
+                            </label>
+                            <input type="text" class="form-control" name="technique">
+                          </div>
+                          <div class="row clearfix">
+                            <div class="col-sm-6">
+                              <div class="form-group form-group-default required">
+                                <label>Dimension</label>
+                                <input id="start-date" type="text" class="form-control" name="dimension" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group form-group-default input-group">
+                                <label class="inline">Disponibilité</label>
+                              <span class="input-group-addon bg-transparent">
+                                <input type="checkbox" name="availability" data-init-plugin="switchery" data-size="small" data-color="primary" checked="checked" />
+                              </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="form-group form-group-default input-group">
+                                <label>Prix</label>
+                                <input type="text" name="price" class="form-control usd" required>
+                              <span class="input-group-addon">
+                                CAN
+                              </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <textarea name="description" id="wysiwyg5" class="wysiwyg" placeholder="Enter text ..." style="height:150px width:100% "></textarea>
+                          </div>
+                        </div>
+
+                        <br>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                        <button class="btn btn-default"><i class="pg-close"></i> Clear</button>
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                        <div class="col-md-6">
+                          <!-- START PANEL -->
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <div class="panel-title">
+                                Drag n' drop uploader
+                              </div>
+                              <div class="tools">
+                                <a class="collapse" href="javascript:;"></a>
+                                <a class="config" data-toggle="modal" href="#grid-config"></a>
+                                <a class="reload" href="javascript:;"></a>
+                                <a class="remove" href="javascript:;"></a>
+                              </div>
+                            </div>
+                            <div class="panel-body no-scroll no-padding">
+                              <div class="fallback">
+                                <input name="file" type="file" multiple/>
+                              </div>
+                            </div>
+                          </div>
+                            <!-- END PANEL -->
+                        </div>
+
+                    </form>
+                  </div>
+                </div>
+                </div>
+
+                  <!-- END PANEL -->
+              </div>
+            </div>
+            <!-- END CONTAINER FLUID -->
+          </div>
+          <!-- END PAGE CONTENT -->
+    </div>
+
+    <script src="/assets/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+      <script>
+        $(document).ready(function() {
+            $('#wysiwyg5').wysihtml5();
+        });
+      </script>
+  </body>
+</html>

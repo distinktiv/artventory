@@ -3,10 +3,7 @@ package com.artventory.distinktiv.controller;
 import com.artventory.distinktiv.domaine.User;
 import com.artventory.distinktiv.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -31,6 +28,10 @@ public class UserController {
         return userService.getUserByEmail(email).orElse(new User());
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    User createUser(@RequestBody User user){
+        return userService.createUser(user);
+    }
     //Create, Update, Delete
 
 }

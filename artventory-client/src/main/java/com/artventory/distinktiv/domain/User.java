@@ -81,11 +81,23 @@ public class User implements Serializable{
         return failedLoginCount;
     }
 
+    public void setFailedLoginCount(int failedLoginCount) {
+        this.failedLoginCount = failedLoginCount;
+    }
+
     public Date getLastFailedLoginDate() {
         return lastFailedLoginDate;
     }
 
+    public void setLastFailedLoginDate(Date lastFailedLoginDate) {
+        this.lastFailedLoginDate = lastFailedLoginDate;
+    }
+
     public boolean isAccountLocked() {
         return accountLocked;
+    }
+
+    public void setAccountLocked(boolean accountLocked) {
+        this.accountLocked = accountLocked;
     }
 }
