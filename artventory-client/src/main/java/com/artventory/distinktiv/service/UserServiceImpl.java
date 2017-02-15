@@ -31,7 +31,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public Optional<User> getUserByEmail(String email) {
 
-        System.out.println("********* EMAIL in Service: " + email);
         return Optional.of(userClient.getUserByEmail(email));
     }
 
