@@ -23,8 +23,8 @@ public class UserController {
         return userService.getAllUsers().orElse(Collections.EMPTY_LIST);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value="/{email}")
-    User getUserByEmail(@PathVariable String email){
+    @RequestMapping(method = RequestMethod.GET, value="/email")
+    User getUserByEmail(@RequestParam("email") String email){
         return userService.getUserByEmail(email).orElse(new User());
     }
 

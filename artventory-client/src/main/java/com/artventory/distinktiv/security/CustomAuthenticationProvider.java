@@ -35,11 +35,14 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         String email = authentication.getName();
         String password = authentication.getCredentials().toString();
+        System.out.println("----- EMAIL ------- " + email);
 
+        System.out.println("----- BEFORE");
         User user = userService.getUserByEmail(email).orElseThrow(() -> new BadCredentialsException(BAD_CREDENTIALS));
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         boolean isPasswordsMatch = encoder.matches(password, user.getPassword());
+        System.out.println("----- isPasswordsMatch ------- " + isPasswordsMatch);
 
         if (!isPasswordsMatch) {
             userService.updateUserFailedLoginCount(user);

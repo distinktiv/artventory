@@ -22,6 +22,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET)
     ResponseEntity getPage()
     {
+
         return new ResponseEntity(userClient.getAllUsers(), HttpStatus.OK);
     }
 }

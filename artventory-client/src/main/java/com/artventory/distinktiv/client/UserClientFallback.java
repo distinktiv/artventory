@@ -14,6 +14,7 @@ public class UserClientFallback implements UserClient{
     @Override
     public Collection<User> getAllUsers() {
         User user = new User();
+        user.setFirstName("toto");
         return Arrays.asList(user);
     }
 

@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpStrictTransportSecurity()
                 .includeSubDomains(true)
                 .maxAgeInSeconds(31536000);
-        http.authorizeRequests().antMatchers("/", "/painting").permitAll().anyRequest().authenticated()
+        http.authorizeRequests().antMatchers("/", "/hello", "/painting").permitAll().anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").usernameParameter("email").passwordParameter("password").permitAll()
                 .and()
@@ -45,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/resources/static/assets/js/**");
         web.ignoring().antMatchers("/assets/**");
         web.ignoring().antMatchers("/pages/**");
+        web.ignoring().antMatchers("*/users/*");
     }
 
     @Autowired
