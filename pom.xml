@@ -19,5 +19,6 @@
 		<module>registration</module>
 		<module>users</module>
 		<module>artventory-client</module>
+		<module>inventory</module>
 	</modules>
 </project>
