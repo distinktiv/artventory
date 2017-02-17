@@ -1,21 +1,12 @@
 package com.artventory.distinktiv.controller;
 
-import com.distinktiv.domain.Painting;
-import com.distinktiv.domain.form.PaintingCreatedForm;
-import com.distinktiv.service.Exceptions.StorageFileNotFoundException;
-import com.distinktiv.service.PaintingService;
-import com.distinktiv.service.StorageService;
+import com.artventory.distinktiv.domain.User;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by distinktiv on 2016-12-27.
@@ -25,24 +16,26 @@ import java.util.List;
 @RequestMapping(value = "/painting")
 public class PaintingController {
 
-    @Autowired
-    private PaintingService paintingService;
-    @Autowired
-    private StorageService storageService;
+    //@Autowired
+    //private PaintingService paintingService;
+    //@Autowired
+    //private StorageService storageService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String admin_painting_list(Model model,
                               HttpServletRequest request){
 
-        List<Painting> allPainting = paintingService.getAllPainting().get();
+       /* List<Painting> allPainting = paintingService.getAllPainting().get();
         model.addAttribute("isPresent", paintingService.getAllPainting().isPresent());
         model.addAttribute("paintingsSize", paintingService.getAllPainting().get().size());
-        model.addAttribute("paintings", allPainting);
+        model.addAttribute("paintings", allPainting);*/
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userMail",user.getEmail());
         return "admin/painting.list";
 
     }
 
-    @RequestMapping(value = "/calendar", method = RequestMethod.GET)
+ /*   @RequestMapping(value = "/calendar", method = RequestMethod.GET)
     public String calendar(){
         return "admin/calendar";
     }
@@ -93,7 +86,7 @@ public class PaintingController {
         return ResponseEntity.notFound().build();
     }
     //{id}
-
+*/
 
 
 }

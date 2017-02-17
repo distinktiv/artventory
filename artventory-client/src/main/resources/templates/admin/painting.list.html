@@ -28,6 +28,7 @@
                       FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN
                       FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT
                   -->
+                USER -- ${userMail}
                 <div th:each="painting : ${paintings}" class="gallery-item " data-width="1" data-height="1">
                   <!-- START PREVIEW -->
                   <div class="live-tile slide" data-speed="750" data-delay="4000" data-mode="carousel">

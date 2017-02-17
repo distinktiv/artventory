@@ -1,7 +1,8 @@
 package com.artventory.distinktiv.service;
 
-import com.distinktiv.service.Exceptions.StorageException;
-import com.distinktiv.service.Exceptions.StorageFileNotFoundException;
+import com.artventory.distinktiv.configuration.StorageProperties;
+import com.artventory.distinktiv.service.Exceptions.StorageException;
+import com.artventory.distinktiv.service.Exceptions.StorageFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

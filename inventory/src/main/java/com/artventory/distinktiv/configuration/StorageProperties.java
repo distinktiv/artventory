@@ -1,4 +1,4 @@
-package com.artventory.distinktiv.service;
+package com.artventory.distinktiv.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
