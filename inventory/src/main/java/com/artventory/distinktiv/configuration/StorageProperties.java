@@ -1,7 +1,5 @@
 package com.artventory.distinktiv.configuration;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 /**
  * Created by distinktiv on 2017-01-07.
  */
