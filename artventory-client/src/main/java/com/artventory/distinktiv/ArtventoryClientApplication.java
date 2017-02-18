@@ -1,7 +1,6 @@
 package com.artventory.distinktiv;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.web.servlet.ErrorPage;
@@ -11,7 +10,6 @@ import org.springframework.http.HttpStatus;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableAutoConfiguration
 public class ArtventoryClientApplication {
 
 	public static void main(String[] args) {
