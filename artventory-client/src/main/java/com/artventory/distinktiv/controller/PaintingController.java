@@ -2,7 +2,9 @@ package com.artventory.distinktiv.controller;
 
 import com.artventory.distinktiv.domain.Painting;
 import com.artventory.distinktiv.domain.User;
+import com.artventory.distinktiv.service.InventoryService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
@@ -23,10 +25,8 @@ import javax.validation.Valid;
 @RequestMapping(value = "/painting")
 public class PaintingController {
 
-    //@Autowired
-    //private PaintingService paintingService;
-    //@Autowired
-    //private StorageService storageService;
+    @Autowired
+    private InventoryService inventoryService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String admin_painting_list(Model model,
@@ -68,7 +68,8 @@ public class PaintingController {
         if(!StringUtils.isEmpty(error)){
             model.addAttribute("error",error);
         }else{
-                paintingService.createPainting(painting);
+                inventoryService.createPainting(painting);
+                //paintingService.createPainting(painting);
         }
 
 
