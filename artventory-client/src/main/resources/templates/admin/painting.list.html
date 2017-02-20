@@ -5,11 +5,11 @@
     <title>Mariloudart - Liste des tableaux</title>
   </head>
   <body>
+         <div layout:fragment="content">
 
-          <div layout:fragment="content">
-          <!-- START PAGE CONTENT -->
-            <div class="content ">
-              <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+           <!-- START PAGE CONTENT -->
+           <div class="content">
+             <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
               <!-- START CATEGORY -->
               <div class="gallery">
                 <div class="gallery-filters p-t-20 p-b-10">
@@ -28,7 +28,6 @@
                       FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN
                       FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT
                   -->
-                USER -- ${userMail}
                 <div th:each="painting : ${paintings}" class="gallery-item " data-width="1" data-height="1">
                   <!-- START PREVIEW -->
                   <div class="live-tile slide" data-speed="750" data-delay="4000" data-mode="carousel">
