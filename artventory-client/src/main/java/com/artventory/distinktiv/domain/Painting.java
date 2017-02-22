@@ -10,9 +10,6 @@ import java.math.BigDecimal;
 public class Painting implements Serializable {
 
     private Long id;
-    //productNumber: get last product Number of the year than increment from 1
-
-    //year
     private String title;
     private String Description;
     private String category;
@@ -22,6 +19,9 @@ public class Painting implements Serializable {
     private Boolean availability;
     private BigDecimal price;
     private String file;
+    private int year;
+    private long productNumber;
+    //productNumber: get last product Number of the year than increment from 1
 
 
     public Long getId() {
