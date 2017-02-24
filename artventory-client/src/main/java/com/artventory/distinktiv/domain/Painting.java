@@ -1,5 +1,7 @@
 package com.artventory.distinktiv.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -18,7 +20,7 @@ public class Painting implements Serializable {
     private String dimension;
     private Boolean availability;
     private BigDecimal price;
-    private String file;
+    private MultipartFile file;
     private int year;
     private long productNumber;
     //productNumber: get last product Number of the year than increment from 1
@@ -96,11 +98,27 @@ public class Painting implements Serializable {
         this.price = price;
     }
 
-    public String getFile() {
+    public MultipartFile getFile() {
         return file;
     }
 
-    public void setFile(String file) {
+    public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public long getProductNumber() {
+        return productNumber;
+    }
+
+    public void setProductNumber(long productNumber) {
+        this.productNumber = productNumber;
     }
 }

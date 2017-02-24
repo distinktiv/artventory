@@ -12,12 +12,12 @@ import java.util.Collection;
 /**
  * Created by distinktiv on 2017-02-18.
  */
-@FeignClient(value = "invertory-service")
+@FeignClient(value = "invertory-service", fallback = InventoryClientFallback.class)
 public interface InventoryClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/paintings")
     Collection<Painting> getAllPaintingFromUser(@RequestParam("id") Long id);
 
-    @RequestMapping(method = RequestMethod.POST, value = "painting")
+    @RequestMapping(method = RequestMethod.POST, value = "/painting")
     Painting createUserPainting(@RequestBody Painting painting);
 }

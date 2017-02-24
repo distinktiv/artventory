@@ -48,7 +48,7 @@ public class PaintingController {
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String admin_painting_add(HttpServletRequest request, Model model){
 
         CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
@@ -61,7 +61,7 @@ public class PaintingController {
         return "admin/painting.add";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String admin_painting_add_submit(@RequestParam(value = "error", required = false) String error,
                                             @Valid @ModelAttribute Painting painting,
                                             Model model){
@@ -73,7 +73,7 @@ public class PaintingController {
         }
 
 
-        return "redirect:/painting/add/";
+        return "redirect:/painting/list/";
     }
 
 /*    @RequestMapping(value = "/edit", method = RequestMethod.GET)

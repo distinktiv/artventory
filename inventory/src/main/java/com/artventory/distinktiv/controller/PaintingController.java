@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by distinktiv on 2016-12-27.
@@ -19,7 +21,7 @@ import java.util.Collections;
 
 @RestController
 public class PaintingController {
-
+    private static final Logger LOG = Logger.getLogger(PaintingController.class.getName());
     @Autowired
     private PaintingService paintingService;
 
@@ -33,6 +35,8 @@ public class PaintingController {
 
     @RequestMapping(value = "/painting", method = RequestMethod.POST)
     public Painting createPainting(@RequestBody PaintingCreatedForm form) {
+        LOG.log(Level.WARNING, "IN a ************************");
+        System.out.println("**************** A");
         Painting painting = new Painting();
         painting.setTitle(form.getTitle());
         painting.setDescription(form.getDescription());
@@ -44,6 +48,7 @@ public class PaintingController {
         painting.setPrice(form.getPrice());
         painting.setFile(form.getFile().getOriginalFilename());
 
+        System.out.println("**************** B");
         return paintingRepository.save(painting);
 
     }

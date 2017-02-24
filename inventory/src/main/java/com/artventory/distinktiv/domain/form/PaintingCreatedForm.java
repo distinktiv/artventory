@@ -29,7 +29,9 @@ public class PaintingCreatedForm {
 
     private MultipartFile file;
 
+    private int year;
 
+    private long productNumber;
 
 
 
@@ -103,5 +105,21 @@ public class PaintingCreatedForm {
 
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public long getProductNumber() {
+        return productNumber;
+    }
+
+    public void setProductNumber(long productNumber) {
+        this.productNumber = productNumber;
     }
 }
