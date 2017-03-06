@@ -7,6 +7,7 @@ import com.artventory.distinktiv.repository.PaintingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ public class PaintingServiceImpl implements PaintingService{
     }
 
     @Override
-    public Painting createPainting(PaintingCreatedForm form) {
+    public Painting createPainting(File file, PaintingCreatedForm form) {
         Painting painting = new Painting();
         painting.setTitle(form.getTitle());
         painting.setDescription(form.getDescription());
@@ -39,7 +40,7 @@ public class PaintingServiceImpl implements PaintingService{
         painting.setTechnique(form.getTechnique());
         painting.setAvailability(form.getAvailability());
         painting.setPrice(form.getPrice());
-        painting.setFile(form.getFile().getOriginalFilename());
+        painting.setFile(file.getName());
 
         return paintingRepository.save(painting);
 

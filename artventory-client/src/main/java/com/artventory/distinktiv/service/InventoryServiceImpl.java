@@ -6,6 +6,7 @@ import com.artventory.distinktiv.domain.Painting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ public class InventoryServiceImpl implements InventoryService{
     }
 
     @Override
-    public Painting createPainting(Painting form) {
-        return inventoryClient.createUserPainting(form);
+    public Painting createPainting(File file, Painting form) {
+        return inventoryClient.createUserPainting(file,form);
     }
 }

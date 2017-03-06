@@ -1,20 +1,17 @@
 package com.artventory.distinktiv.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by distinktiv on 2017-02-07.
  */
-public class User implements Serializable{
+public class User{
 
     private Long id;
 
     private String email;
 
-
     private String firstName;
-
 
     private String lastName;
 

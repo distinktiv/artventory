@@ -1,13 +1,12 @@
 package com.artventory.distinktiv.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by distinktiv on 2017-01-29.
  */
 @Entity
-public class Albums implements Serializable {
+public class Albums {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

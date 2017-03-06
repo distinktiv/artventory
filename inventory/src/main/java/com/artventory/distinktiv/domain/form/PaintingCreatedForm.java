@@ -1,7 +1,6 @@
 package com.artventory.distinktiv.domain.form;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
@@ -26,8 +25,6 @@ public class PaintingCreatedForm {
     private Boolean availability;
 
     private BigDecimal price;
-
-    private MultipartFile file;
 
     private int year;
 
@@ -97,14 +94,6 @@ public class PaintingCreatedForm {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    public void setFile(MultipartFile file) {
-        this.file = file;
     }
 
     public int getYear() {

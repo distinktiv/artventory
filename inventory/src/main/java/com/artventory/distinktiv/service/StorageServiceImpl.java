@@ -8,8 +8,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -43,15 +43,15 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
-    public void store(MultipartFile file) {
-        if(file.isEmpty()){
-            throw new StorageException("Can't store empty file " + file.getOriginalFilename());
+    public void store(File file) {
+        /*if(file.exists()){
+            throw new StorageException("Can't store empty file " + file.getName());
         }
         try {
-            Files.copy(file.getInputStream(),this.rootLocation.resolve(file.getOriginalFilename()));
+            Files.copy(file,this.rootLocation.resolve(file.getName()));
         } catch (IOException e) {
-            throw new StorageException("Failed to store file " + file.getOriginalFilename(),e);
-        }
+            throw new StorageException("Failed to store file " + file.getName(),e);
+        }*/
     }
 
     @Override

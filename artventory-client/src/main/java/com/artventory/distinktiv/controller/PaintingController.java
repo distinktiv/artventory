@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by distinktiv on 2016-12-27.
@@ -63,12 +66,19 @@ public class PaintingController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String admin_painting_add_submit(@RequestParam(value = "error", required = false) String error,
+                                            @RequestParam("file") MultipartFile file,
                                             @Valid @ModelAttribute Painting painting,
                                             Model model){
         if(!StringUtils.isEmpty(error)){
             model.addAttribute("error",error);
         }else{
-                inventoryService.createPainting(painting);
+            File convertedFile = new File(file.getOriginalFilename());
+            try {
+                file.transferTo(convertedFile);
+                inventoryService.createPainting(convertedFile,painting);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
                 //paintingService.createPainting(painting);
         }
 

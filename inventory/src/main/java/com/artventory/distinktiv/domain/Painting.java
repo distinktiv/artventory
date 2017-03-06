@@ -1,7 +1,6 @@
 package com.artventory.distinktiv.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -9,7 +8,7 @@ import java.math.BigDecimal;
  */
 
 @Entity
-public class Painting implements Serializable {
+public class Painting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

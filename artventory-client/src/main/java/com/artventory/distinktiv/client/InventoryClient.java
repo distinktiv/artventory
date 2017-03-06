@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.File;
 import java.util.Collection;
 
 /**
@@ -19,5 +20,5 @@ public interface InventoryClient {
     Collection<Painting> getAllPaintingFromUser(@RequestParam("id") Long id);
 
     @RequestMapping(method = RequestMethod.POST, value = "/painting")
-    Painting createUserPainting(@RequestBody Painting painting);
+    Painting createUserPainting(@RequestParam("file") File file, @RequestBody Painting painting);
 }
