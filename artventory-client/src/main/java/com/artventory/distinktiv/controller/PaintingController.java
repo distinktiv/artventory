@@ -34,7 +34,9 @@ public class PaintingController {
     public String admin_painting_list(Model model,
                               HttpServletRequest request){
 
-       /* List<Painting> allPainting = paintingService.getAllPainting().get();
+       /*
+        List<Painting> allPainting = inventoryService.getPaintingFromArtist();
+        //paintingService.getAllPainting().get();
         model.addAttribute("isPresent", paintingService.getAllPainting().isPresent());
         model.addAttribute("paintingsSize", paintingService.getAllPainting().get().size());
         model.addAttribute("paintings", allPainting);*/

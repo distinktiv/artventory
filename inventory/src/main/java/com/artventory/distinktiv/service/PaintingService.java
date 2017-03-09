@@ -11,5 +11,6 @@ import java.util.Optional;
  */
 public interface PaintingService {
     Optional<List<Painting>> getAllPainting();
+    Optional<List<Painting>> getAllArtistPainting(Long id);
     Painting createPainting(Painting form);
 }

@@ -3,7 +3,9 @@ package com.artventory.distinktiv.service;
 
 import com.artventory.distinktiv.client.InventoryClient;
 import com.artventory.distinktiv.domain.Painting;
+import com.artventory.distinktiv.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -31,6 +33,8 @@ public class InventoryServiceImpl implements InventoryService{
 
     @Override
     public Painting createPainting(File file, Painting form) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        form.setArtistId(user.getId());
         form.setPaintingFile(file);
         return inventoryClient.createUserPainting(form);
     }

@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 public class Painting {
 
     private Long id;
+    private Long artistId;
     private String title;
     private String Description;
     private String category;
@@ -34,6 +35,14 @@ public class Painting {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(Long artistId) {
+        this.artistId = artistId;
     }
 
     public String getTitle() {

@@ -28,8 +28,15 @@ public class PaintingServiceImpl implements PaintingService{
     }
 
     @Override
+    public Optional<List<Painting>> getAllArtistPainting(Long id) {
+        return Optional.of((List<Painting>) paintingRepository.findAllByArtistId(id));
+    }
+
+
+    @Override
     public Painting createPainting(Painting form) {
         Painting painting = new Painting();
+        painting.setArtistId(form.getArtistId());
         painting.setTitle(form.getTitle());
         painting.setDescription(form.getDescription());
         painting.setCategory(form.getCategory());

@@ -14,6 +14,8 @@ public class Painting {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
+    private Long artistId;
 
     //productNumber: get last product Number of the year than increment from 1
 
@@ -52,6 +54,14 @@ public class Painting {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(Long artistId) {
+        this.artistId = artistId;
     }
 
     public String getTitle() {
