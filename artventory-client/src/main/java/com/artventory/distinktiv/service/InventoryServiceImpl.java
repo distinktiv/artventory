@@ -31,6 +31,8 @@ public class InventoryServiceImpl implements InventoryService{
 
     @Override
     public Painting createPainting(File file, Painting form) {
-        return inventoryClient.createUserPainting(file,form);
+        form.setPaintingFile(file);
+        return inventoryClient.createUserPainting(form);
     }
+
 }

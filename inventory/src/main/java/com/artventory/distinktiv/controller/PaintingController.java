@@ -1,13 +1,14 @@
 package com.artventory.distinktiv.controller;
 
 import com.artventory.distinktiv.domain.Painting;
-import com.artventory.distinktiv.domain.form.PaintingCreatedForm;
 import com.artventory.distinktiv.repository.PaintingRepository;
 import com.artventory.distinktiv.service.PaintingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.logging.Logger;
@@ -31,9 +32,8 @@ public class PaintingController {
     }
 
     @RequestMapping(value = "/painting", method = RequestMethod.POST)
-    public Painting createPainting(@RequestPart("file") File file, @RequestBody PaintingCreatedForm form) {
-        return paintingService.createPainting(file,form);
+    public Painting createPainting(@RequestBody Painting form) {
+        return paintingService.createPainting(form);
     }
-
 
 }

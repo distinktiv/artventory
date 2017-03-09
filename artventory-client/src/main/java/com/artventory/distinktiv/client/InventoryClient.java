@@ -7,18 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.File;
 import java.util.Collection;
 
 /**
  * Created by distinktiv on 2017-02-18.
  */
-@FeignClient(value = "invertory-service", fallback = InventoryClientFallback.class)
+@FeignClient(value = "inventory-service", serviceId = "inventory-service")
 public interface InventoryClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/paintings")
     Collection<Painting> getAllPaintingFromUser(@RequestParam("id") Long id);
 
     @RequestMapping(method = RequestMethod.POST, value = "/painting")
-    Painting createUserPainting(@RequestParam("file") File file, @RequestBody Painting painting);
+    Painting createUserPainting(@RequestBody Painting painting);
 }

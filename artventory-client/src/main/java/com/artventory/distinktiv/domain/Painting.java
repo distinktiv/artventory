@@ -1,5 +1,8 @@
 package com.artventory.distinktiv.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.File;
 import java.math.BigDecimal;
 
 /**
@@ -19,6 +22,9 @@ public class Painting {
     private BigDecimal price;
     private int year;
     private long productNumber;
+
+    @JsonIgnore
+    private File paintingFile;
     //productNumber: get last product Number of the year than increment from 1
 
 
@@ -108,5 +114,13 @@ public class Painting {
 
     public void setProductNumber(long productNumber) {
         this.productNumber = productNumber;
+    }
+
+    public File getPaintingFile() {
+        return paintingFile;
+    }
+
+    public void setPaintingFile(File paintingFile) {
+        this.paintingFile = paintingFile;
     }
 }

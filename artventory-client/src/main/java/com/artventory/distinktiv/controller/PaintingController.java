@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 
@@ -45,12 +44,6 @@ public class PaintingController {
 
     }
 
-   @RequestMapping(value = "/calendar", method = RequestMethod.GET)
-    public String calendar(){
-        return "admin/calendar";
-    }
-
-
     @RequestMapping(method = RequestMethod.GET)
     public String admin_painting_add(HttpServletRequest request, Model model){
 
@@ -67,7 +60,7 @@ public class PaintingController {
     @RequestMapping(method = RequestMethod.POST)
     public String admin_painting_add_submit(@RequestParam(value = "error", required = false) String error,
                                             @RequestParam("file") MultipartFile file,
-                                            @Valid @ModelAttribute Painting painting,
+                                            @ModelAttribute Painting painting,
                                             Model model){
         if(!StringUtils.isEmpty(error)){
             model.addAttribute("error",error);

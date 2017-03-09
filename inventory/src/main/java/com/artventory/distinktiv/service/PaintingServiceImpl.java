@@ -2,12 +2,10 @@ package com.artventory.distinktiv.service;
 
 
 import com.artventory.distinktiv.domain.Painting;
-import com.artventory.distinktiv.domain.form.PaintingCreatedForm;
 import com.artventory.distinktiv.repository.PaintingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +28,7 @@ public class PaintingServiceImpl implements PaintingService{
     }
 
     @Override
-    public Painting createPainting(File file, PaintingCreatedForm form) {
+    public Painting createPainting(Painting form) {
         Painting painting = new Painting();
         painting.setTitle(form.getTitle());
         painting.setDescription(form.getDescription());
@@ -40,7 +38,7 @@ public class PaintingServiceImpl implements PaintingService{
         painting.setTechnique(form.getTechnique());
         painting.setAvailability(form.getAvailability());
         painting.setPrice(form.getPrice());
-        painting.setFile(file.getName());
+        painting.setFile("Mon file name");
 
         return paintingRepository.save(painting);
 

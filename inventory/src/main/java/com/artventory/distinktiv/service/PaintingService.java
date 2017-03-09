@@ -2,9 +2,7 @@ package com.artventory.distinktiv.service;
 
 
 import com.artventory.distinktiv.domain.Painting;
-import com.artventory.distinktiv.domain.form.PaintingCreatedForm;
 
-import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,5 +11,5 @@ import java.util.Optional;
  */
 public interface PaintingService {
     Optional<List<Painting>> getAllPainting();
-    Painting createPainting(File file, PaintingCreatedForm form);
+    Painting createPainting(Painting form);
 }
