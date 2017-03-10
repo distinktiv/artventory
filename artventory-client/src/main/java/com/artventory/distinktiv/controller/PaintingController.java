@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by distinktiv on 2016-12-27.
@@ -40,8 +41,11 @@ public class PaintingController {
         model.addAttribute("isPresent", paintingService.getAllPainting().isPresent());
         model.addAttribute("paintingsSize", paintingService.getAllPainting().get().size());
         model.addAttribute("paintings", allPainting);*/
+
         User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Painting> allPainting = inventoryService.getPaintingFromArtist(user.getId().toString());
         model.addAttribute("userEmail",user.getEmail());
+        model.addAttribute("paintings", allPainting);
         return "admin/painting.list";
 
     }

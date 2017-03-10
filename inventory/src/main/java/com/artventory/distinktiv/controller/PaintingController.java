@@ -4,13 +4,11 @@ import com.artventory.distinktiv.domain.Painting;
 import com.artventory.distinktiv.repository.PaintingRepository;
 import com.artventory.distinktiv.service.PaintingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -26,9 +24,10 @@ public class PaintingController {
     @Autowired
     private PaintingRepository paintingRepository;
 
-    @RequestMapping(value = "/paintings", method = RequestMethod.GET)
-    public Collection<Painting> getAllPainting(){
-        return paintingService.getAllPainting().orElse(Collections.EMPTY_LIST);
+    @RequestMapping(value = "/paintings/{userId}", method = RequestMethod.GET)
+    public List<Painting> getAllPaintingFromUser(@PathVariable String userId){
+        Long userIdLong = Long.parseLong(userId);
+        return paintingService.getAllArtistPainting(userIdLong).orElse(Collections.EMPTY_LIST);
     }
 
     @RequestMapping(value = "/painting", method = RequestMethod.POST)

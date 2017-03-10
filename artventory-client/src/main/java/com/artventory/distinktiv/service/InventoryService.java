@@ -11,6 +11,6 @@ import java.util.Optional;
  */
 public interface InventoryService {
 
-    Optional<List<Painting>> getPaintingFromArtist(Long id);
+    List<Painting> getPaintingFromArtist(String id);
     Painting createPainting(File file, Painting form);
 }

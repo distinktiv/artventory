@@ -27,8 +27,8 @@ public class InventoryServiceImpl implements InventoryService{
     }
 
     @Override
-    public Optional<List<Painting>> getPaintingFromArtist(Long id) {
-        return Optional.of((List<Painting>) inventoryClient.getAllPaintingFromUser(id));
+    public List<Painting> getPaintingFromArtist(String id) {
+        return (List<Painting>) inventoryClient.getAllPaintingFromUser(id);
     }
 
     @Override

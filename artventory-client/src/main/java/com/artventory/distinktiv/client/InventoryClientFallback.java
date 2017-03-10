@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by distinktiv on 2017-02-23.
@@ -13,7 +14,7 @@ import java.util.Collection;
 @Component
 public class InventoryClientFallback implements InventoryClient {
     @Override
-    public Collection<Painting> getAllPaintingFromUser(@RequestParam("id") Long id) {
+    public List<Painting> getAllPaintingFromUser(String id) {
         return null;
     }
 
