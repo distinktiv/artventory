@@ -18,8 +18,9 @@ public class Painting {
     private String category;
     private String medium;
     private String technique;
-    private String dimension;
-    private Boolean availability;
+    private String dimensionInch;
+    private String dimensionCm;
+    private String availability;
     private BigDecimal price;
     private int year;
     private long productNumber;
@@ -85,19 +86,27 @@ public class Painting {
         this.technique = technique;
     }
 
-    public String getDimension() {
-        return dimension;
+    public String getDimensionInch() {
+        return dimensionInch;
     }
 
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
+    public void setDimensionInch(String dimensionInch) {
+        this.dimensionInch = dimensionInch;
     }
 
-    public Boolean getAvailability() {
+    public String getDimensionCm() {
+        return dimensionCm;
+    }
+
+    public void setDimensionCm(String dimensionCm) {
+        this.dimensionCm = dimensionCm;
+    }
+
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Boolean availability) {
+    public void setAvailability(String availability) {
         this.availability = availability;
     }
 

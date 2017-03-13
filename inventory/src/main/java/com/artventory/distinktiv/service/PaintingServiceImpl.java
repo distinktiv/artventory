@@ -40,7 +40,8 @@ public class PaintingServiceImpl implements PaintingService{
         painting.setTitle(form.getTitle());
         painting.setDescription(form.getDescription());
         painting.setCategory(form.getCategory());
-        painting.setDimension(form.getDimension());
+        painting.setDimensionInch(form.getDimensionInch());
+        painting.setDimensionCm(form.getDimensionCm());
         painting.setMedium(form.getMedium());
         painting.setTechnique(form.getTechnique());
         painting.setAvailability(form.getAvailability());

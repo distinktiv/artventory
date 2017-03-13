@@ -33,6 +33,7 @@ public class InventoryServiceImpl implements InventoryService{
 
     @Override
     public Painting createPainting(File file, Painting form) {
+        //set Artist Id
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         form.setArtistId(user.getId());
         form.setPaintingFile(file);

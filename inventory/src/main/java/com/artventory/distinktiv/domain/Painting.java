@@ -36,10 +36,13 @@ public class Painting {
     private String technique;
 
     @Column
-    private String dimension;
+    private String dimensionInch;
 
     @Column
-    private Boolean availability;
+    private String dimensionCm;
+
+    @Column
+    private String availability;
 
     @Column
     private BigDecimal price;
@@ -104,19 +107,27 @@ public class Painting {
         this.technique = technique;
     }
 
-    public String getDimension() {
-        return dimension;
+    public String getDimensionInch() {
+        return dimensionInch;
     }
 
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
+    public void setDimensionInch(String dimensionInch) {
+        this.dimensionInch = dimensionInch;
     }
 
-    public Boolean getAvailability() {
+    public String getDimensionCm() {
+        return dimensionCm;
+    }
+
+    public void setDimensionCm(String dimensionCm) {
+        this.dimensionCm = dimensionCm;
+    }
+
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Boolean availability) {
+    public void setAvailability(String availability) {
         this.availability = availability;
     }
 
