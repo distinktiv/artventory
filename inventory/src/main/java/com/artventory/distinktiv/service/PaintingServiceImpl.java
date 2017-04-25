@@ -51,4 +51,9 @@ public class PaintingServiceImpl implements PaintingService{
         return paintingRepository.save(painting);
 
     }
+
+    @Override
+    public Painting getPaintingFromId(Long id) {
+        return paintingRepository.findById(id);
+    }
 }

@@ -10,10 +10,7 @@ import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -64,10 +61,10 @@ public class PaintingController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String admin_painting_add_submit(@RequestParam(value = "error", required = false) String error,
-                                            @RequestParam("file") MultipartFile file,
-                                            @ModelAttribute Painting painting,
-                                            Model model){
+        public String admin_painting_add_submit(@RequestParam(value = "error", required = false) String error,
+                                                @RequestParam("file") MultipartFile file,
+                                                @ModelAttribute Painting painting,
+                                                Model model){
         if(!StringUtils.isEmpty(error)){
             model.addAttribute("error",error);
         }else{
@@ -78,18 +75,28 @@ public class PaintingController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-                //paintingService.createPainting(painting);
         }
 
 
         return "redirect:/painting/list/";
     }
 
-/*    @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String admin_painting_edit(){
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String admin_painting_edit(@PathVariable("id") Integer id, Model model){
+        Painting painting = inventoryService.getPaintingById(id.toString());
+        model.addAttribute("painting", painting);
         return "admin/painting.edit";
     }
 
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String admin_painting_edit_post(@RequestParam(value = "error", required = false) String error,
+                                           @ModelAttribute Painting painting,
+                                           Model model){
+        System.out.println("SUBMIT IT!!!!!!!!!!!!!!!!");
+        return "redirect:/painting/list/";
+    }
+
+    /*
     //delete
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String admin_painting_delete(){

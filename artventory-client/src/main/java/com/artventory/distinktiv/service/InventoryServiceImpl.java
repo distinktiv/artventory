@@ -40,4 +40,9 @@ public class InventoryServiceImpl implements InventoryService{
         return inventoryClient.createUserPainting(form);
     }
 
+    @Override
+    public Painting getPaintingById(String id) {
+        return inventoryClient.getPaintingById(id);
+    }
+
 }

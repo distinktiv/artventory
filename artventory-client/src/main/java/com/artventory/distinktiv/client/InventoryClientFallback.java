@@ -22,4 +22,11 @@ public class InventoryClientFallback implements InventoryClient {
     public Painting createUserPainting(@RequestBody Painting painting) {
         return null;
     }
+
+    @Override
+    public Painting getPaintingById(String id) {
+        return null;
+    }
+
+
 }

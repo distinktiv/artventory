@@ -35,4 +35,10 @@ public class PaintingController {
         return paintingService.createPainting(form);
     }
 
+    @RequestMapping(value = "/painting/edit/{id}", method = RequestMethod.GET)
+    public Painting getPaintingById(@PathVariable("id") String id){
+        Long idLong = Long.parseLong(id);
+        return paintingService.getPaintingFromId(idLong);
+    }
+
 }

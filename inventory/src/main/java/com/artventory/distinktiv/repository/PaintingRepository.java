@@ -12,6 +12,7 @@ import java.util.List;
 public interface PaintingRepository extends CrudRepository<Painting,Long> {
     Painting findByTitle(String title);
     Painting findByFile(String file);
+    Painting findById(Long id);
     List<Painting> findAllByArtistId(Long id);
     List<Painting> findAllByOrderByIdDesc();
 }

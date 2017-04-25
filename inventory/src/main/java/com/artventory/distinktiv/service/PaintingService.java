@@ -13,4 +13,5 @@ public interface PaintingService {
     Optional<List<Painting>> getAllPainting();
     Optional<List<Painting>> getAllArtistPainting(Long id);
     Painting createPainting(Painting form);
+    Painting getPaintingFromId(Long id);
 }

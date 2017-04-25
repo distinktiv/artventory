@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/admin.main">
+  <head>
+    <title>Mariloudart - Modification de tableaux</title>
+    <link href="/assets/plugins/dropzone/css/dropzone.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min.css" type="text/css" rel="stylesheet" >
+  </head>
+  <body>
+    <div layout:fragment="content">
+          <!-- START PAGE CONTENT -->
+          <div class="content ">
+            <!-- START CONTAINER FLUID -->
+            <div class="container-fluid container-fixed-lg bg-white m-t-20">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- START PANEL -->
+                  <div class="panel panel-transparent">
+                    <div class="panel-body">
+
+                      <form id="form-painting" class="form-horizontal" th:object="${painting}" role="form" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label for="fname" class="col-sm-2 control-label">Titre</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="fname" placeholder="Titre de la toile" name="title" th:field="*{title}" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="name" class="col-sm-2 control-label">Description</label>
+                          <div class="col-sm-9">
+                            <textarea name="description" class="form-control" id="name" placeholder="Bref Description" th:field="*{description}"></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Medium</label>
+                          <div class="col-sm-9">
+                            <div class="row">
+                              <div class="col-sm-2">
+                                <input name="medium" type="text" class="form-control" th:field="*{medium}">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Technique</label>
+                          <div class="col-sm-9">
+                            <div class="row">
+                              <div class="col-sm-2">
+                                <select name="technique"  class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                                  <option value="Huile">Huile</option>
+                                  <option value="Aquarelle">Aquarelle</option>
+                                  <option value="Giclée">Giclée</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">dimension</label>
+                          <div class="col-sm-9">
+                            <div class="row">
+                              <div class="col-sm-2">
+                                <input name="dimensionInch" placeholder="En pouce" type="text" class="form-control" th:field="*{dimensionInch}" >
+                              </div>
+                              <div class="col-sm-2 sm-m-t-10">
+                                <input name="dimensionCm" placeholder="En cm" type="text" class="form-control" th:field="*{dimensionCm}">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Catégorie</label>
+                          <div class="col-sm-9">
+                            <div class="row">
+                              <div class="col-sm-2">
+                                <input name="category" type="text" class="form-control" th:field="*{category}" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Prix</label>
+                          <div class="col-sm-9">
+                            <div class="row">
+                              <div class="col-sm-2">
+                                <input name="price" type="text" class="autonumeric form-control" data-a-sign="$ " th:field="*{price}" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Disponibilité</label>
+                          <div class="col-sm-9">
+                            <div class="row">
+                              <div class="col-sm-5">
+                                <div class="radio radio-success">
+                                  <input type="radio" value="stock" checked="checked" name="availability" id="stock">
+                                  <label for="stock">En Stock</label>
+                                  <input type="radio" value="sold" name="availability" id="sold">
+                                  <label for="sold">Vendu</label>
+                                  <input type="radio" value="gift" name="availability" id="gift">
+                                  <label for="gift">Don</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Photo</label>
+                          <div class="col-sm-6">
+                            <input name="file" required type="file" multiple/>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                          <button class="btn btn-success" type="submit">Submit</button>
+                          <button class="btn btn-default"><i class="pg-close"></i> Clear</button>
+                          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                        </div>
+
+                        <br><br>
+                      </form>
+                    </div>
+                </div>
+                </div>
+
+                  <!-- END PANEL -->
+              </div>
+            </div>
+            <!-- END CONTAINER FLUID -->
+          </div>
+          <!-- END PAGE CONTENT -->
+    </div>
+
+    <script src="/assets/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+
+  </body>
+</html>
