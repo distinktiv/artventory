@@ -53,6 +53,24 @@ public class PaintingServiceImpl implements PaintingService{
     }
 
     @Override
+    public Painting updatePainting(Long id, Painting form){
+        Painting painting = getPaintingFromId(id);
+        painting.setArtistId(form.getArtistId());
+        painting.setTitle(form.getTitle());
+        painting.setDescription(form.getDescription());
+        painting.setCategory(form.getCategory());
+        painting.setDimensionInch(form.getDimensionInch());
+        painting.setDimensionCm(form.getDimensionCm());
+        painting.setMedium(form.getMedium());
+        painting.setTechnique(form.getTechnique());
+        painting.setAvailability(form.getAvailability());
+        painting.setPrice(form.getPrice());
+        painting.setFile("filename");
+
+        return paintingRepository.save(painting);
+    }
+
+    @Override
     public Painting getPaintingFromId(Long id) {
         return paintingRepository.findById(id);
     }

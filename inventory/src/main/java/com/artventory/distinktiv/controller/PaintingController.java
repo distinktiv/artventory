@@ -41,4 +41,10 @@ public class PaintingController {
         return paintingService.getPaintingFromId(idLong);
     }
 
+    @RequestMapping(value = "/painting/edit/{id}", method = RequestMethod.POST)
+    public Painting updatePaintingById(@PathVariable("id") String id,
+                                       @RequestBody Painting paintingForm){
+        Long idLong = Long.parseLong(id);
+        return paintingService.updatePainting(idLong,paintingForm);
+    }
 }

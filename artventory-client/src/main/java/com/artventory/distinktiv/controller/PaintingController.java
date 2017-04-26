@@ -89,10 +89,14 @@ public class PaintingController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public String admin_painting_edit_post(@RequestParam(value = "error", required = false) String error,
-                                           @ModelAttribute Painting painting,
+    public String admin_painting_edit_post(@PathVariable("id") Integer id,
+                                           @RequestParam("file") MultipartFile file,
+                                           @ModelAttribute Painting paintingForm,
+                                           @RequestParam(value = "error", required = false) String error,
                                            Model model){
-        System.out.println("SUBMIT IT!!!!!!!!!!!!!!!!");
+
+        inventoryService.updatePainting(id.toString(),paintingForm, new File(file.getOriginalFilename()));
+
         return "redirect:/painting/list/";
     }
 

@@ -21,4 +21,7 @@ public interface InventoryClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/painting/edit/{id}")
     Painting getPaintingById(@PathVariable("id") String id);
+
+    @RequestMapping(method = RequestMethod.POST, value = "painting/edit/{id}")
+    Painting updatePainting(@PathVariable("id") String id, @RequestBody Painting paintingForm);
 }

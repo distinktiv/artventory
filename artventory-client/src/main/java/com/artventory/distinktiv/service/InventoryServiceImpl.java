@@ -45,4 +45,12 @@ public class InventoryServiceImpl implements InventoryService{
         return inventoryClient.getPaintingById(id);
     }
 
+    @Override
+    public Painting updatePainting(String id, Painting form,File file) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        form.setArtistId(user.getId());
+        form.setPaintingFile(file);
+        return inventoryClient.updatePainting(id,form);
+    }
+
 }

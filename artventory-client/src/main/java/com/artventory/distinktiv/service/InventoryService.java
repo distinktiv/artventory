@@ -14,4 +14,5 @@ public interface InventoryService {
     List<Painting> getPaintingFromArtist(String id);
     Painting createPainting(File file, Painting form);
     Painting getPaintingById(String id);
+    Painting updatePainting(String id, Painting form, File file);
 }

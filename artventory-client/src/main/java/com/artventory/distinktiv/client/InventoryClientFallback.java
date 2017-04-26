@@ -28,5 +28,10 @@ public class InventoryClientFallback implements InventoryClient {
         return null;
     }
 
+    @Override
+    public Painting updatePainting(String id, Painting paintingForm) {
+        return null;
+    }
+
 
 }
